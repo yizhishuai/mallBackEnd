@@ -215,4 +215,11 @@
    count(*)
     from mall_order
   </select>
+
+  <select id="selectByOrderList"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from mall_order
+  </select>
+
 </mapper>

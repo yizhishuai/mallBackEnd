@@ -9,7 +9,7 @@ import com.imooc.mall.vo.ResponseVo;
 import java.util.List;
 
 /**
- * Created by 廖师兄
+ *
  */
 public interface IProductService {
 
@@ -24,4 +24,6 @@ public interface IProductService {
 	ResponseVo productStatus(Integer productId,Integer status);
 
 	ResponseVo productSave(Product product);
+
+	ResponseVo productDelete(Integer productId);
 }

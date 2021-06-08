@@ -16,9 +16,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
 
-/**
- * Created by 廖师兄
- */
+
 @RestController
 @Slf4j
 public class UserController {

@@ -2,9 +2,7 @@ package com.imooc.mall.enums;
 
 import lombok.Getter;
 
-/**
- * Created by 廖师兄
- */
+
 @Getter
 public enum ResponseEnum {
 
@@ -56,6 +54,8 @@ public enum ResponseEnum {
 	USER_DELETE_ERROR(1,"用户不存在或者已经被删除"),
 
 	USER_MODIFY_ERROR(1,"用户信息修改失败"),
+
+	PRODUCT_DELETE_ERROR(1,"删除商品失败"),
 
 	CATEGORY_DELETE_ERROR(1,"分类已经被删除或者不存在"),
 		;

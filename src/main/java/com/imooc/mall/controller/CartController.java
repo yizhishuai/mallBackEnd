@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
-/**
- * Created by 廖师兄
- */
+
 @RestController
 public class CartController {
 

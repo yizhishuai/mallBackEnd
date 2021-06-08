@@ -23,4 +23,6 @@ public interface OrderMapper {
 
     int selectOrderCount();
 
+    List<Order> selectByOrderList();
+
 }

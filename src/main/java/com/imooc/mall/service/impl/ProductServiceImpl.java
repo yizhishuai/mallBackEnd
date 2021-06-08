@@ -14,7 +14,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import sun.misc.REException;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -22,11 +21,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.imooc.mall.enums.ProductStatusEnum.*;
+import static com.imooc.mall.enums.ProductStatusEnum.DELETE;
+import static com.imooc.mall.enums.ProductStatusEnum.OFF_SALE;
 import static com.imooc.mall.enums.ResponseEnum.PRODUCT_OFF_SALE_OR_DELETE;
 
 /**
- * Created by 廖师兄
+ *
  */
 @Service
 @Slf4j
@@ -126,6 +126,16 @@ public class ProductServiceImpl implements IProductService {
 			}else {
 				return ResponseVo.error(ResponseEnum.PRODUCT_UPDATE_ERROR);
 			}
+		}
+	}
+
+	@Override
+	public ResponseVo productDelete(Integer productId) {
+		int code = productMapper.deleteByPrimaryKey(productId);
+		if(code == 1){
+			return ResponseVo.successByMsg("删除商品成功");
+		}else {
+			return ResponseVo.error(ResponseEnum.PRODUCT_DELETE_ERROR);
 		}
 	}
 }

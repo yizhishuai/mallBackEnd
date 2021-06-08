@@ -3,7 +3,7 @@ package com.imooc.mall.pojo;
 import lombok.Data;
 
 /**
- * Created by 廖师兄
+ *
  */
 @Data
 public class Cart {

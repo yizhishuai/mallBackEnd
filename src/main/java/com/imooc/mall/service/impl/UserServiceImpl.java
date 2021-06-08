@@ -20,7 +20,7 @@ import java.util.List;
 import static com.imooc.mall.enums.ResponseEnum.*;
 
 /**
- * Created by 廖师兄
+ *
  */
 @Service
 public class UserServiceImpl implements IUserService {

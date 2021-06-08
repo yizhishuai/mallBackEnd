@@ -12,9 +12,7 @@ import java.util.Objects;
 
 import static com.imooc.mall.enums.ResponseEnum.ERROR;
 
-/**
- * Created by 廖师兄
- */
+
 @ControllerAdvice
 public class RuntimeExceptionHandler {
 

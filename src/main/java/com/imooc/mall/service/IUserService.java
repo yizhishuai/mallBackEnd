@@ -7,7 +7,7 @@ import com.imooc.mall.vo.Statistic;
 import java.util.List;
 
 /**
- * Created by 廖师兄
+ *
  */
 public interface IUserService {
 

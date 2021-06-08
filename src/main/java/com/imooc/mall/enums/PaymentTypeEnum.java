@@ -1,8 +1,5 @@
 package com.imooc.mall.enums;
 
-/**
- * Created by 廖师兄
- */
 
 import lombok.Getter;
 

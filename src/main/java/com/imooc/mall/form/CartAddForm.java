@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 添加商品
- * Created by 廖师兄
+ *
  */
 @Data
 public class CartAddForm {

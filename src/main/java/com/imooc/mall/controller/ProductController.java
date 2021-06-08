@@ -1,7 +1,6 @@
 package com.imooc.mall.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.imooc.mall.enums.ResponseEnum;
 import com.imooc.mall.form.ProductIUpdateForm;
 import com.imooc.mall.form.SetSaleStatusForm;
 import com.imooc.mall.pojo.Product;
@@ -20,9 +19,7 @@ import javax.validation.Valid;
 import java.io.*;
 import java.util.List;
 
-/**
- * Created by 廖师兄
- */
+
 @RestController
 public class ProductController {
 
@@ -56,7 +53,7 @@ public class ProductController {
 		return productService.productStatus(form.getProductId(),form.getStatus());
 	}
 
-	@PostMapping("/products/save")
+	@PostMapping("products/save")
 	public ResponseVo save(@Valid  @RequestBody ProductIUpdateForm form){
 		Product product = new Product();
 		BeanUtils.copyProperties(form,product);
@@ -129,5 +126,9 @@ public class ProductController {
 	}
 
 
+	@PostMapping("/products/delete/{productId}")
+	public ResponseVo productDelete(@PathVariable Integer productId){
+		return productService.productDelete(productId);
+	}
 
 }

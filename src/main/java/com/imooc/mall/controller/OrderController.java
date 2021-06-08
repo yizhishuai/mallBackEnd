@@ -14,9 +14,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
 
-/**
- * Created by 廖师兄
- */
+
 @RestController
 public class OrderController {
 
@@ -62,13 +60,11 @@ public class OrderController {
 
 
 	@GetMapping("/orders/list")
-	public ResponseVo<List<OrderVo>> orderList(HttpSession session){
-		User user = (User) session.getAttribute(MallConst.CURRENT_USER);
-		return orderService.orders(user.getId());
+	public ResponseVo<List<OrderVo>> orderList(){
+		return orderService.orderList();
 	}
-	@GetMapping("/orders/delete")
-	public ResponseVo orderDelete(@Valid @RequestParam(required = true)Long orderNo,HttpSession session){
-		User user = (User) session.getAttribute(MallConst.CURRENT_USER);
-		return orderService.orderDelete(user.getId(),orderNo);
+	@PostMapping("/orders/delete/{orderNo}")
+	public ResponseVo orderDelete(@Valid @PathVariable(required = true)Long orderNo){
+		return orderService.orderDelete(orderNo);
 	}
 }

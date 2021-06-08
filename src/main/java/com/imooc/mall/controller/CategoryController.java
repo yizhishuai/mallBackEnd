@@ -2,7 +2,6 @@ package com.imooc.mall.controller;
 
 import com.imooc.mall.enums.ResponseEnum;
 import com.imooc.mall.form.CategoryAddFrom;
-import com.imooc.mall.form.CategoryDeleteForm;
 import com.imooc.mall.service.ICategoryService;
 import com.imooc.mall.vo.CategoryVo;
 import com.imooc.mall.vo.ResponseVo;
@@ -10,12 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashSet;
 import java.util.List;
 
-/**
- * Created by 廖师兄
- */
+
 @RestController
 public class CategoryController {
 
@@ -42,8 +38,8 @@ public class CategoryController {
 		}
 	}
 
-	@PostMapping("/category/delete")
-	public ResponseVo delete(@Valid @RequestBody CategoryDeleteForm form){
-		return categoryService.delete(form.getCategoryId());
+	@PostMapping("/category/delete/{categoryId}")
+	public ResponseVo delete(@PathVariable Integer categoryId){
+		return categoryService.delete(categoryId);
 	}
 }

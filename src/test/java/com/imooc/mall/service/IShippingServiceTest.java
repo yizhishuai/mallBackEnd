@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Map;
 
 /**
- * Created by 廖师兄
+ *
  */
 @Slf4j
 public class IShippingServiceTest extends MallApplicationTests {

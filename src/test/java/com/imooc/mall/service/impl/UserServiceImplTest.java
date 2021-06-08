@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Created by 廖师兄
+ *
  */
 @Transactional
 public class UserServiceImplTest extends MallApplicationTests {

@@ -27,7 +27,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Created by 廖师兄
+ *
  */
 @Service
 public class OrderServiceImpl implements IOrderService {
@@ -301,13 +301,10 @@ public class OrderServiceImpl implements IOrderService {
 	}
 
 	@Override
-	public ResponseVo orderDelete(Integer uid,Long orderNo) {
+	public ResponseVo orderDelete(Long orderNo) {
 		Order order = orderMapper.selectByOrderNo(orderNo);
 		if(order == null){
 			return ResponseVo.error(ResponseEnum.ORDER_NOT_EXIST);
-		}
-		if(!order.getUserId().equals(uid)){
-			return ResponseVo.error(ResponseEnum.DELETE_NO_PERMISSION);
 		}
 		int code =  orderMapper.deleteByPrimaryKey(order.getId());
 		if(code == 1){
@@ -315,5 +312,22 @@ public class OrderServiceImpl implements IOrderService {
 		}else {
 			return ResponseVo.error(ResponseEnum.DELETE_ORDER_ERROR);
 		}
+	}
+
+	@Override
+	public ResponseVo<List<OrderVo>> orderList() {
+		List<Order> orders = orderMapper.selectByOrderList();
+		List<OrderVo> result = new ArrayList<>();
+		for(Order order : orders){
+			Set<Long> orderNoSet = new HashSet<>();
+			orderNoSet.add(order.getOrderNo());
+			List<OrderItem> orderItemList = orderItemMapper.selectByOrderNoSet(orderNoSet);
+
+			Shipping shipping = shippingMapper.selectByPrimaryKey(order.getShippingId());
+
+			OrderVo orderVo = buildOrderVo(order, orderItemList, shipping);
+			result.add(orderVo);
+		}
+		return ResponseVo.success(result);
 	}
 }

@@ -7,7 +7,7 @@ import com.imooc.mall.vo.ResponseVo;
 import java.util.List;
 
 /**
- * Created by 廖师兄
+ *
  */
 public interface IOrderService {
 
@@ -25,6 +25,9 @@ public interface IOrderService {
 
 	Integer orderCount();
 
-	ResponseVo orderDelete(Integer uid,Long orderNo);
+	ResponseVo orderDelete(Long orderNo);
+
+
+	ResponseVo<List<OrderVo>> orderList();
 
 }
